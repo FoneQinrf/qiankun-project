@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 14:03:53
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-01 16:06:15
+ * @LastEditTime: 2020-06-02 13:33:40
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -36,7 +36,6 @@ addGlobalUncaughtErrorHandler((event: any) => {
     NProgress.done();
     // 加载失败时提示
     if (msg && msg.includes("died in status LOADING_SOURCE_CODE")) {
-        console.error("微应用加载失败，请检查应用是否可运行");
         Message.error('微应用加载失败，请检查应用是否可运行');
     }
 });
