@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:26
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-01 13:07:08
+ * @LastEditTime: 2020-06-03 17:37:11
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -46,7 +46,9 @@ module.exports = {
     'consistent-return': 'off',
     'import/no-cycle': 'off',
     'semi': 0,
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    'spaced-comment': 'off',
+    'no-multi-spaces': 'off'
   },
   overrides: [
     {

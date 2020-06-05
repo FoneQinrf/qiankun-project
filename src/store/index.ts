@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:27
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-02 14:45:35
+ * @LastEditTime: 2020-06-05 16:50:12
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -11,6 +11,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import router from "@/router";
 import { routerList } from "@/utils";
+import { setToken } from "@/utils/auth";
 
 Vue.use(Vuex);
 
@@ -47,7 +48,7 @@ export default new Vuex.Store({
         icon: "",
         type: "micro",
         key: "react",
-        label: "react-project",
+        label: "react",
         children: [
           {
             path: "/react",
@@ -63,7 +64,7 @@ export default new Vuex.Store({
         icon: "",
         type: "micro",
         key: "static",
-        label: "static-project",
+        label: "static",
         children: [
           {
             path: "/static",
@@ -88,7 +89,11 @@ export default new Vuex.Store({
   },
   actions: {
     logout({ commit }) {
-      commit('logout');
+      return new Promise((resolve) => {
+        setToken('token', '');
+        commit('logout');
+        resolve();
+      })
     },
     login({ commit }) {
       commit('login');

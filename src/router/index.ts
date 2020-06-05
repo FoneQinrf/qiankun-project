@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:27
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-02 11:45:47
+ * @LastEditTime: 2020-06-05 14:18:46
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -11,6 +11,8 @@ import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import store from "@/store";
 import { getToken } from "@/utils/auth";
+import startQiankun from "@/micro";
+import apps from "@/micro/apps";
 
 Vue.use(VueRouter);
 
@@ -34,30 +36,40 @@ const routes: Array<RouteConfig> = [
   }
 ];
 
-const router = new VueRouter({
+const createRouter: any = () => new VueRouter({
   mode: "history",
   routes,
 });
 
+const router: any = createRouter()
+
+/**
+ * 重置路由
+ */
+export function restRouter() {
+  router.matcher = createRouter().matcher;
+}
+
 const whiteList = ['login'];
-router.beforeEach((to: any, from, next) => {
+router.beforeEach((to: any, from: any, next: any) => {
   const token = getToken('token');
-  if (token) {
-    if (to.name === 'login') {
+  if (token) {   //token存在
+    if (to.name === 'login') {     //如果login直接跳转首页
       return next({ path: '/' });
     }
-    if (!store.state.hasInited) {
+    if (!store.state.hasInited) {   //防止反复addRoutes预设的值
       store.dispatch('addRouters').then((res) => {
         router.addRoutes(res);
+        startQiankun(apps);
         store.state.hasInited = true;
         next({ ...to, replace: true });
       })
       return;
     }
     next();
-  } else if (whiteList.includes(to.name)) {
+  } else if (whiteList.includes(to.name)) {   //白名单直接放行
     next();
-  } else {
+  } else {     //token不存在
     next({ path: '/login', query: { redirect: to.path } });
   }
 });

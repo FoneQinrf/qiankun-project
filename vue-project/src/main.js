@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 15:15:34
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-02 11:46:01
+ * @LastEditTime: 2020-06-05 13:42:03
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -24,7 +24,7 @@ let router = null;
 
 function render() {
   router = new VueRouter({
-    // 运行在主应用中时，添加路由命名空间 /vue
+    // 运行在主应用中时，基础路由地址配置为 /vue
     base: window.__POWERED_BY_QIANKUN__ ? "/vue" : "/",
     mode: "history",
     routes,
@@ -37,6 +37,9 @@ function render() {
   }).$mount("#app");
 }
 
+/**
+ * 不存在主应用时可直接单独运行
+ */
 if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }

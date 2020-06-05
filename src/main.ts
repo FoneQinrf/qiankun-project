@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:27
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-05-29 16:05:19
+ * @LastEditTime: 2020-06-03 17:33:37
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -18,13 +18,11 @@ import {
   Submenu,
   MenuItemGroup
 } from "element-ui";
-import startQiankun from "@/micro";
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
 
-startQiankun();
 Vue.config.productionTip = false;
 Vue.use(Container);
 Vue.use(Aside);
