@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:27
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-05 16:50:12
+ * @LastEditTime: 2020-06-30 11:29:29
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -22,21 +22,21 @@ export default new Vuex.Store({
     routes: [
       {
         path: "/vue",
-        icon: "",
+        icon: "el-icon-location",
         type: "micro",
         key: "vue",
         label: "vue",
         children: [
           {
             path: "/vue",
-            icon: "",
+            icon: "el-icon-location",
             type: "micro",
             key: "vue-project",
             label: "vue-project"
           },
           {
             path: "/vue/about",
-            icon: "",
+            icon: "el-icon-location",
             type: "micro",
             key: "vue-about",
             label: "vue-project-about"
@@ -45,14 +45,14 @@ export default new Vuex.Store({
       },
       {
         path: "/react",
-        icon: "",
+        icon: "el-icon-location",
         type: "micro",
         key: "react",
         label: "react",
         children: [
           {
             path: "/react",
-            icon: "",
+            icon: "el-icon-location",
             type: "micro",
             key: "react-project",
             label: "react-project"
@@ -61,14 +61,14 @@ export default new Vuex.Store({
       },
       {
         path: "/static",
-        icon: "",
+        icon: "el-icon-location",
         type: "micro",
         key: "static",
         label: "static",
         children: [
           {
             path: "/static",
-            icon: "",
+            icon: "el-icon-location",
             type: "micro",
             key: "static-project",
             label: "static-project"
@@ -76,7 +76,8 @@ export default new Vuex.Store({
         ]
       }
     ],
-    hasInited: false
+    hasInited: false,
+    menuStatus: false
   },
   mutations: {
     logout(state) {

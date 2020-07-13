@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-29 15:55:30
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-01 14:56:14
+ * @LastEditTime: 2020-07-02 15:32:08
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -13,10 +13,10 @@
       <el-submenu :index="basePath">
         <template slot="title">
           <i :class="route.icon"></i>
-          <span>{{route.label}}</span>
+          <span slot="title">{{route.label}}</span>
         </template>
         <el-menu-item-group>
-          <menu-item
+          <MenuItem
             v-for="item in route.children"
             :key="item.path"
             :route="item"
@@ -29,19 +29,34 @@
       <router-link :to="basePath">
         <el-menu-item :index="route.path">
           <i :class="route.icon"></i>
-          <span>{{route.label}}</span>
+          <span slot="title">{{route.label}}</span>
         </el-menu-item>
       </router-link>
     </template>
   </div>
 </template>
 
-<script>
-export default {
-  name: "menu-item",
-  props: {
-    route: Object,
-    basePath: String
-  }
-};
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+
+@Component({
+  name: "MenuItem"
+})
+export default class MenuItem extends Vue {
+  @Prop()
+  route?: object;
+
+  @Prop()
+  basePath?: string;
+}
 </script>
+
+<style scoped>
+.el-menu--collapse span {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
+}
+</style>

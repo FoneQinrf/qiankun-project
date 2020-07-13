@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:27
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-05 14:18:46
+ * @LastEditTime: 2020-07-10 10:13:29
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -30,7 +30,7 @@ const routes: Array<RouteConfig> = [
       {
         path: '',
         name: 'Home',
-        component: () => import('@/views/Home.vue')
+        component: () => import('@/views/home/index.vue')
       }
     ]
   }
@@ -70,7 +70,7 @@ router.beforeEach((to: any, from: any, next: any) => {
   } else if (whiteList.includes(to.name)) {   //白名单直接放行
     next();
   } else {     //token不存在
-    next({ path: '/login', query: { redirect: to.path } });
+    next({ path: '/login', query: { redirect: to.fullPath } });
   }
 });
 

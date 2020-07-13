@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-29 13:51:19
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-03 11:42:33
+ * @LastEditTime: 2020-06-30 16:15:51
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -12,6 +12,12 @@
     <slot />
   </div>
 </template>
+
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+@Component
+export default class Scrollbar extends Vue {}
+</script>
 
 <style lang="less" scoped>
 .scrollbar {

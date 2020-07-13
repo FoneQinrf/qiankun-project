@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 15:15:34
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-05 13:42:03
+ * @LastEditTime: 2020-06-28 15:13:05
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -22,14 +22,14 @@ let instance = null;
 let router = null;
 
 
-function render() {
+function render(props) {
   router = new VueRouter({
     // 运行在主应用中时，基础路由地址配置为 /vue
     base: window.__POWERED_BY_QIANKUN__ ? "/vue" : "/",
     mode: "history",
     routes,
   });
-
+  Vue.prototype.$app = props.app;
   instance = new Vue({
     router,
     store,
@@ -45,7 +45,7 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-  
+
 }
 
 /**

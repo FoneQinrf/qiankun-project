@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-28 11:06:26
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-06-03 17:37:11
+ * @LastEditTime: 2020-07-10 12:04:03
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -48,7 +48,12 @@ module.exports = {
     'semi': 0,
     '@typescript-eslint/no-explicit-any': 'off',
     'spaced-comment': 'off',
-    'no-multi-spaces': 'off'
+    'no-multi-spaces': 'off',
+    "@typescript-eslint/no-inferrable-types": "off",
+    '@typescript-eslint/no-var-requires': 1,
+    '@typescript-eslint/ban-ts-ignore': 0,
+    'class-methods-use-this': 1,
+    'new-cap': 0
   },
   overrides: [
     {
